@@ -8,32 +8,38 @@ class Rover
 
   def turn_left
     case @direction
-      when "N" then "W"
-      when "W" then "S"
-      when "S" then "E"
-      when "E" then "N"
+      when "N" then @direction = "W"
+      when "W" then @direction = "S"
+      when "S" then @direction = "E"
+      when "E" then @direction = "N"
     end
   end
 
   def turn_right
     case @direction
-      when "N" then "E"
-      when "W" then "N"
-      when "S" then "W"
-      when "E" then "S"
+      when "N" then @direction = "E"
+      when "W" then @direction = "N"
+      when "S" then @direction = "W"
+      when "E" then @direction = "S"
     end
   end
 
   def move
     case @direction
-    when "N" then y += 1
-    when "W" then x += 1
-    when "S" then y -= 1
-    when "E" then x -= 1
+      when "N" then y += 1
+      when "W" then x += 1
+      when "S" then y -= 1
+      when "E" then x -= 1
+    end
   end
 
   def read_instruction
-
+    @instructions.each do |command|
+      case command
+        when "L" then turn_left
+        when "R" then turn_right
+        when "M" then move
+      end
+    end
   end
-
 end

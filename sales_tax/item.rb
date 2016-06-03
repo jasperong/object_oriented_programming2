@@ -24,4 +24,8 @@ class Item
       (@price * 0.15).round(2)
     end
   end
+
+  def price_taxed
+    @price + @price.tax
+  end
 end

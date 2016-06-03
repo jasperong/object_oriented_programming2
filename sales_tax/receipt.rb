@@ -15,13 +15,10 @@ class Receipt
     taxed_cart = @cart.map { |x| x.tax }
     taxed_cart.inject(:+)
   end
-end
 
-book = Item.new("book", 12.49, "basic")
-chocolate = Item.new("chocolate", 0.85, "no_tax imported")
-c1 = Receipt.new
-puts c1.add(book)
-puts c1.add(chocolate)
-puts chocolate.tax
-puts book.tax
-puts c1.total
+  def print
+    puts @cart.each {|product| "#{product.name}: #{product.price_taxed}"}
+    puts "Sales Tax: #{product.tax.inject(:+)}"
+    puts @cart.total
+  end
+end

@@ -45,6 +45,6 @@ class Rover
   end
 
   def output
-    "#{@rover} is at #{@x} #{@y} #{@direction}"
+    "#{@x} #{@y} #{@direction}"
   end
 end

@@ -1,8 +1,8 @@
-class Float
-  def round_point05
-    (self*2).round / 20.0
-  end
-end
+# class Float
+#   def round_point05
+#     (self*2).round / 20.0
+#   end
+# end
 
 class Item
   attr_accessor :name, :price, :type
@@ -15,13 +15,13 @@ class Item
 
   def tax
     if @type == "no_tax"
-      @price.round_point05
+      0
     elsif @type == "no_tax imported"
-      (@price * 1.05).round_point05
+      (@price * 0.05).round(2)
     elsif @type == "basic"
-      (@price * 1.10).round_point05
+      (@price * 0.10).round(2)
     elsif @type == "imported"
-      (@price * 1.15).round_point05
+      (@price * 0.15).round(2)
     end
   end
 end

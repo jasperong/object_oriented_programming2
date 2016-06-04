@@ -26,6 +26,8 @@ class Item
   end
 
   def price_taxed
-    @price + @price.tax
+    @price + tax
   end
+
+
 end

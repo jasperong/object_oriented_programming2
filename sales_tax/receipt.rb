@@ -1,4 +1,4 @@
-require_relative "item"
+require_relative "item.rb"
 
 class Receipt
   attr_accessor :item
@@ -11,14 +11,21 @@ class Receipt
     @cart << item
   end
 
-  def total
+  def total_price
+    total_cart = @cart.map { |x| x.price_taxed }
+    total_cart.inject(:+)
+  end
+
+  def total_tax
     taxed_cart = @cart.map { |x| x.tax }
     taxed_cart.inject(:+)
   end
 
   def print
-    puts @cart.each {|product| "#{product.name}: #{product.price_taxed}"}
-    puts "Sales Tax: #{product.tax.inject(:+)}"
-    puts @cart.total
+    @cart.each do |product|
+      puts "#{product.name}: #{product.price_taxed}"
+    end
+    puts "Sales Tax: #{total_tax}"
+    puts "Total: #{total_price}"
   end
 end

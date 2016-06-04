@@ -2,7 +2,7 @@
 
 For sales_tax, run point_of_sale.rb
 
-a little glitch in rounding, but otherwise functional
+
 
 default instances are coded in the file.
 

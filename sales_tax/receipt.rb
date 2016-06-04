@@ -23,9 +23,9 @@ class Receipt
 
   def print
     @cart.each do |product|
-      puts "#{product.name}: #{product.price_taxed}"
+      puts "#{product.name}: #{product.price_taxed.round(2)}"
     end
-    puts "Sales Tax: #{total_tax}"
-    puts "Total: #{total_price}"
+    puts "Sales Tax: #{total_tax.round(2)}"
+    puts "Total: #{total_price.round(2)}"
   end
 end
